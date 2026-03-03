@@ -1,22 +1,31 @@
 import sys
+
+def solve():
+    input = sys.stdin.read
+    data = input().split()
     
-input = sys.stdin.readline
-    
-n = int(input().strip())
-    
-if n == 1:
-    input()
-    print(0)
+    if not data:
+        return
         
-xs = []
-ys = []
+    n = int(data[0])
     
-for _ in range(n):
-    x, y = map(int, input().split())
-    xs.append(x)
-    ys.append(y)
+    if n == 1:
+        print(0)
+        return
         
-width = max(xs) - min(xs)
-height = max(ys) - min(ys)
+    xs = []
+    ys = []
     
-print(width * height)
+    idx = 1
+    for _ in range(n):
+        xs.append(int(data[idx]))
+        ys.append(int(data[idx+1]))
+        idx += 2
+        
+    width = max(xs) - min(xs)
+    height = max(ys) - min(ys)
+    
+    print(width * height)
+
+if __name__ == '__main__':
+    solve()
